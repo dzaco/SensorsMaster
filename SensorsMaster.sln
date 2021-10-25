@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorsMaster", "SensorsMaster\SensorsMaster.csproj", "{13F2E022-3295-457A-86C6-9D83104054B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorsMasterTests", "SensorsMasterTests\SensorsMasterTests.csproj", "{268A2D78-72C1-410A-8CEE-07484FD1BA5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13F2E022-3295-457A-86C6-9D83104054B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13F2E022-3295-457A-86C6-9D83104054B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13F2E022-3295-457A-86C6-9D83104054B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13F2E022-3295-457A-86C6-9D83104054B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{268A2D78-72C1-410A-8CEE-07484FD1BA5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{268A2D78-72C1-410A-8CEE-07484FD1BA5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{268A2D78-72C1-410A-8CEE-07484FD1BA5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{268A2D78-72C1-410A-8CEE-07484FD1BA5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50D07560-C031-49C1-AA6D-BE364F679410}
+	EndGlobalSection
+EndGlobal
