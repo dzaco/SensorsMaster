@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SensorsMaster.AppSettings;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -12,6 +13,9 @@ namespace SensorsMaster.Device.Model
     [XmlRoot(nameof(BoardElement), IsNullable = false)]
     public abstract class BoardElement
     {
+        [XmlIgnore]
+        public Settings Settings => Settings.GetInstance();
+
         [XmlIgnore]
         public static int Count { get; private set; }
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SensorsMaster.AppSettings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,9 @@ namespace SensorsMaster.Device.Model
     public class Sensor : BoardElement
     {
         [XmlElement]
+        public Battery Battery { get; set; }
+
+        [XmlElement]
         public double Range { get; set; }
 
         [XmlArray]
@@ -19,6 +23,7 @@ namespace SensorsMaster.Device.Model
         public Sensor()
         {
             this.POIInRange = new POICollection();
+            this.Battery = new Battery();
         }
 
     }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace SensorsMaster.Settings.Model
+namespace SensorsMaster.AppSettings.Model
 {
     [XmlRoot(nameof(SensorSettings))]
     public class SensorSettings

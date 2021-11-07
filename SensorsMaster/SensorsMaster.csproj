@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AppSettings\Model\Settings.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -64,9 +65,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common\Enums\FileExtension.cs" />
+    <Compile Include="Common\Enums\Power.cs" />
     <Compile Include="Common\FileManager.cs" />
     <Compile Include="Common\Helpers\SerializationHelper.cs" />
     <Compile Include="Common\Interfaces\ViewModelBase.cs" />
+    <Compile Include="Device\Model\Battery.cs" />
     <Compile Include="Device\Model\BoardElement.cs" />
     <Compile Include="Device\Model\Collection\SensorCollection.cs" />
     <Compile Include="Device\Model\Coordinates.cs" />
@@ -79,8 +82,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Settings\Model\SensorSettings.cs" />
-    <Compile Include="Settings\Model\Settings.cs" />
+    <Compile Include="AppSettings\Model\SensorSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -98,7 +100,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Settings\Diagrams\SettingsDiagram.cd" />
+    <None Include="AppSettings\Diagrams\SettingsDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,11 +110,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AppSettings\ViewModel\" />
+    <Folder Include="AppSettings\View\" />
     <Folder Include="Common\Exceptions\" />
     <Folder Include="Common\Extensions\" />
     <Folder Include="Resources\" />
-    <Folder Include="Settings\ViewModel\" />
-    <Folder Include="Settings\View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

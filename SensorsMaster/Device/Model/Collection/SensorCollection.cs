@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SensorsMaster.AppSettings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace SensorsMaster.Device.Model.Collection
     [XmlRoot(nameof(SensorCollection))]
     public class SensorCollection : List<Sensor>
     {
-
+        [XmlIgnore]
+        public Settings Settings => Settings.GetInstance();
     }
 }
