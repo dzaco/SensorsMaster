@@ -67,6 +67,12 @@
     <Compile Include="Common\FileManager.cs" />
     <Compile Include="Common\Helpers\SerializationHelper.cs" />
     <Compile Include="Common\Interfaces\ViewModelBase.cs" />
+    <Compile Include="Device\Model\BoardElement.cs" />
+    <Compile Include="Device\Model\Collection\SensorCollection.cs" />
+    <Compile Include="Device\Model\Coordinates.cs" />
+    <Compile Include="Device\Model\POI.cs" />
+    <Compile Include="Device\Model\Collection\POICollection.cs" />
+    <Compile Include="Device\Model\Sensor.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -92,6 +98,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Settings\Diagrams\SettingsDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

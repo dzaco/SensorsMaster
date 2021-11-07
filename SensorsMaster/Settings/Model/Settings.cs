@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace SensorsMaster.Settings.Model
 {
-    [XmlRoot()]
+    [XmlRoot(nameof(Settings))]
     public class Settings
     {
         #region Singleton

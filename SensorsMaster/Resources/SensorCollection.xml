@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<SensorCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Sensor Id="2">
+    <Coordinates X="0" Y="0" />
+    <Range>0</Range>
+    <POIInRange>
+      <POI Id="0">
+        <Coordinates X="1.2" Y="3.5" />
+        <IsCovered>false</IsCovered>
+      </POI>
+      <POI Id="1">
+        <Coordinates X="0" Y="0" />
+        <IsCovered>false</IsCovered>
+      </POI>
+    </POIInRange>
+  </Sensor>
+</SensorCollection>
