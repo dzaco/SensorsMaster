@@ -1,13 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SensorsMaster.Common;
 using SensorsMaster.Common.Helpers;
-using SensorsMaster.Settings.Model;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Xml;
 
 namespace SensorsMaster.Settings.Model.Tests
 {
@@ -26,10 +21,11 @@ namespace SensorsMaster.Settings.Model.Tests
 
             Assert.IsTrue(File.Exists(FileManager.ConfigFile));
 
-            Settings newSettings = SerializationHelper.XmlDeserialize<Settings>
-                (FileManager.ReadStream(FileManager.ConfigFile));
-
-            Assert.AreEqual(newSettings.SensorSettings.Range, settings.SensorSettings.Range);
+            var xml = new XmlDocument();
+            xml.Load(FileManager.ConfigFile);
+            var node = xml.SelectSingleNode("//ConfigPath");
+            Assert.IsNotNull(node);
+            
         }
     }
 }

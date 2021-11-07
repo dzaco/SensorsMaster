@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace SensorsMaster.Settings.Model
 {
-    [XmlRoot("SensorSettings", IsNullable = false)]
+    [XmlRoot()]
     public class SensorSettings
     {
         #region Singleton

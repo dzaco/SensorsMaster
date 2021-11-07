@@ -62,7 +62,7 @@ namespace SensorsMaster.Common
             }
             return stream;
         }
-        public static void SaveStream(MemoryStream stream, string path)
+        public static void SaveStream(Stream stream, string path)
         {
             using (var fs = new FileStream(path, FileMode.Create))
             {
@@ -72,7 +72,7 @@ namespace SensorsMaster.Common
         }
         public static void SaveConfig(Stream stream)
         {
-            SaveStream(stream as MemoryStream, ConfigFile);
+            SaveStream(stream, ConfigFile);
         }
         public static Stream ReadConfig()
         {

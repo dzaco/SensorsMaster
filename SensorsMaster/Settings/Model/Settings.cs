@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace SensorsMaster.Settings.Model
 {
-    [XmlRoot("Settings", IsNullable = false)]
+    [XmlRoot()]
     public class Settings
     {
         #region Singleton
@@ -35,8 +35,9 @@ namespace SensorsMaster.Settings.Model
         }
 
         [XmlElement]
-        public string ConfigPath { get; } = FileManager.ConfigFile;
+        public string ConfigPath { get; set; } = FileManager.ConfigFile;
+
         [XmlElement]
-        public SensorSettings SensorSettings { get; } = SensorSettings.GetInstance();
+        public SensorSettings SensorSettings { get; set; } = SensorSettings.GetInstance();
     }
 }
