@@ -4,5 +4,6 @@
   <SensorSettings>
     <Range>20</Range>
     <Count>5</Count>
+    <BatteryCapacity>100</BatteryCapacity>
   </SensorSettings>
 </Settings>

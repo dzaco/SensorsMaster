@@ -36,6 +36,7 @@ namespace SensorsMaster.AppSettings.Model
         public double Range { get; set; } = 20;
         [XmlElement]
         public double Count { get; set; } = 5;
-
+        [XmlElement]
+        public double BatteryCapacity { get; set; } = 100;
     }
 }

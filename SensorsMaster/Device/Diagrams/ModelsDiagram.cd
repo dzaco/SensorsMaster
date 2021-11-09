@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="SensorsMaster.Device.Model.Sensor">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <Members>
+      <Property Name="Count" Hidden="true" />
+      <Method Name="Sensor" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAgAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Device\Model\Sensor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Battery" />
+      <Property Name="POIInRange" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SensorsMaster.Device.Model.POI">
+    <Position X="8.75" Y="3.5" Width="1.75" />
+    <Members>
+      <Property Name="Count" Hidden="true" />
+      <Method Name="POI" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Device\Model\POI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SensorsMaster.Device.Model.Battery">
+    <Position X="3.25" Y="5" Width="1.75" />
+    <Members>
+      <Method Name="Battery" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAABgAAAAAAAAAA=</HashCode>
+      <FileName>Device\Model\Battery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SensorsMaster.Device.Model.POICollection">
+    <Position X="7.5" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAEAAA=</HashCode>
+      <FileName>Device\Model\Collection\POICollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SensorsMaster.Device.Model.BoardElement">
+    <Position X="6.75" Y="0.5" Width="2.25" />
+    <Members>
+      <Method Name="BoardElement" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAIAAAAABAgAAAAAAAAAA=</HashCode>
+      <FileName>Device\Model\BoardElement.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Settings" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SensorsMaster.AppSettings.Settings">
+    <Position X="11.25" Y="0.5" Width="2" />
+    <Members>
+      <Method Name="Settings" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAEQAAAAAAAAAAgAAAAAAAABAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>AppSettings\Model\Settings.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SensorSettings" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SensorsMaster.AppSettings.Model.SensorSettings">
+    <Position X="15" Y="0.5" Width="2.25" />
+    <Members>
+      <Method Name="SensorSettings" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAEBAAAAAAACAAgAAAAAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AppSettings\Model\SensorSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

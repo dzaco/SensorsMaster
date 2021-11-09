@@ -11,7 +11,9 @@ namespace SensorsMaster.Device.Model.Collection
     [XmlRoot(nameof(SensorCollection))]
     public class SensorCollection : List<Sensor>
     {
+        #region Properties
         [XmlIgnore]
-        public Settings Settings => Settings.GetInstance();
+        public Settings Settings => Settings.GetInstance(); 
+        #endregion
     }
 }

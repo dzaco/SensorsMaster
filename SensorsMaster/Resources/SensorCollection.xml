@@ -1,16 +1,26 @@
 <?xml version="1.0"?>
 <SensorCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Sensor Id="2">
+  <Sensor Id="0" Range="20">
     <Coordinates X="0" Y="0" />
-    <Range>0</Range>
+    <Battery Power="Off" Capacity="100" />
     <POIInRange>
       <POI Id="0">
         <Coordinates X="1.2" Y="3.5" />
-        <IsCovered>false</IsCovered>
+        <IsCovered>true</IsCovered>
       </POI>
-      <POI Id="1">
+      <POI Id="0">
         <Coordinates X="0" Y="0" />
         <IsCovered>false</IsCovered>
+      </POI>
+    </POIInRange>
+  </Sensor>
+  <Sensor Id="1" Range="12.3">
+    <Coordinates X="10" Y="12.45" />
+    <Battery Power="On" Capacity="100" />
+    <POIInRange>
+      <POI Id="0">
+        <Coordinates X="1.2" Y="3.5" />
+        <IsCovered>true</IsCovered>
       </POI>
     </POIInRange>
   </Sensor>

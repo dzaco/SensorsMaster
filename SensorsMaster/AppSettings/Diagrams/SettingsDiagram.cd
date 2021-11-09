@@ -1,26 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="SensorsMaster.Settings.Model.Settings">
-    <Position X="2" Y="1" Width="2" />
-    <Members>
-      <Method Name="Settings" Hidden="true" />
-    </Members>
+  <Class Name="SensorsMaster.AppSettings.Settings">
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEQAAAAAAAAAAgAAAAAAAABAAAACAAAAAAAAAAAAA=</HashCode>
-      <FileName>Settings\Model\Settings.cs</FileName>
+      <FileName>AppSettings\Model\Settings.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="SensorSettings" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="SensorsMaster.Settings.Model.SensorSettings">
-    <Position X="6" Y="1" Width="1.5" />
-    <Members>
-      <Method Name="SensorSettings" Hidden="true" />
-    </Members>
+  <Class Name="SensorsMaster.AppSettings.Model.SensorSettings">
+    <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAAACAAgAAAAAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Settings\Model\SensorSettings.cs</FileName>
+      <HashCode>AAAEBAAAAAAACAAgAAAAAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AppSettings\Model\SensorSettings.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -10,11 +10,21 @@ namespace SensorsMaster.Device.Model
     [XmlRoot(nameof(POI), IsNullable = false)]
     public class POI : BoardElement
     {
-        public POI() : base() { }
+        #region Constructors
+        public POI() : base()
+        {
+            Id = Count++;
+        }
         public POI(Coordinates coordinates) : base(coordinates) { }
+        #endregion
+
+        #region Properties
+        [XmlIgnore]
+        public static int Count { get; private set; }
 
         [XmlElement]
-        public bool IsCovered { get; set; }
+        public bool IsCovered { get; set; } 
+        #endregion
 
     }
 }

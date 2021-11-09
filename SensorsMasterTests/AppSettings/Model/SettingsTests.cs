@@ -4,7 +4,7 @@ using SensorsMaster.Common.Helpers;
 using System.IO;
 using System.Xml;
 
-namespace SensorsMaster.Settings.Model.Tests
+namespace SensorsMaster.AppSettings.Model.Tests
 {
     [TestClass]
     public class SettingsTests
