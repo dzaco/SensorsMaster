@@ -59,6 +59,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppSettings\Model\Settings.cs" />
+    <Compile Include="Common\Interfaces\IHasPoint.cs" />
+    <Compile Include="Device\ViewModel\SensorViewModel.cs" />
+    <Compile Include="Device\View\DeviceShape.cs" />
+    <Compile Include="Device\View\SensorShape.cs" />
+    <Compile Include="TestWindow.xaml.cs">
+      <DependentUpon>TestWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Boards\View\AreaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,6 +77,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Boards\ViewModel\AreaViewModel.cs" />
+    <Compile Include="Boards\View\AreaView.xaml.cs">
+      <DependentUpon>AreaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\Enums\FileExtension.cs" />
     <Compile Include="Common\Enums\Power.cs" />
@@ -75,14 +90,19 @@
     <Compile Include="Device\Model\Battery.cs" />
     <Compile Include="Device\Model\BoardElement.cs" />
     <Compile Include="Device\Model\Collection\SensorCollection.cs" />
-    <Compile Include="Device\Model\Coordinates.cs" />
     <Compile Include="Device\Model\POI.cs" />
     <Compile Include="Device\Model\Collection\POICollection.cs" />
     <Compile Include="Device\Model\Sensor.cs" />
+    <Compile Include="Device\ViewModel\POIViewModel.cs" />
+    <Compile Include="Device\View\POIShape.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings\Model\SensorSettings.cs" />
@@ -120,6 +140,7 @@
     <Folder Include="Common\Exceptions\" />
     <Folder Include="Common\Extensions\" />
     <Folder Include="Resources\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

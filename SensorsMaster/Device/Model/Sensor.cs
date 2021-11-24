@@ -21,6 +21,7 @@ namespace SensorsMaster.Device.Model
             this.Range = range;
             this.Battery.Power = power;
         }
+        
         #endregion
 
         #region Properties

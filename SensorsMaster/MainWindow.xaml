@@ -6,7 +6,23 @@
         xmlns:local="clr-namespace:SensorsMaster"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Save" Click="SaveStateClick">
+                    <!--<MenuItem.Icon>
+                        <Image Source="/Images/png/save-file-option.png"/>
+                    </MenuItem.Icon>-->
+                </MenuItem>
+                <MenuItem Header="Load State" Click="LoadStateClick">
+                    <!--<MenuItem.Icon>
+                        <Image Source="/Images/png/open-folder-outline.png"/>
+                    </MenuItem.Icon>-->
+
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Test" Click="TestClick"/>
+
+        </Menu>
+    </DockPanel>
 </Window>

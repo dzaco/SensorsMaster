@@ -12,6 +12,7 @@ namespace SensorsMaster.Device.Model
             Id = Count++;
         }
         public POI(Point coordinates) : base(coordinates) { }
+        public POI(double x, double y) : base(x, y) { }
         #endregion
 
         #region Properties

@@ -32,5 +32,6 @@ namespace SensorsMaster.AppSettings
         public string ConfigPath { get; set; } = FileManager.ConfigFile;
 
         public SensorSettings SensorSettings { get; set; } = SensorSettings.GetInstance();
+        public double Scale { get; set; } = 5;
     }
 }

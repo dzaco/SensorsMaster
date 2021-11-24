@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SensorsMaster
+namespace SensorMasterWPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,20 +23,6 @@ namespace SensorsMaster
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void TestClick(object sender, RoutedEventArgs e)
-        {
-            var test = new TestWindow();
-            test.Show();
-        }
-        private void SaveStateClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void LoadStateClick(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
