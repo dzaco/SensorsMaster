@@ -9,16 +9,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
+using Newtonsoft.Json;
+using System.Diagnostics;
+using System.IO;
+using SensorsMasterTests.Factory;
 
 namespace SensorsMaster.Common.Tests
 {
     [TestClass()]
     public class FileManagerTests
     {
+        private bool FileContains(string val, string path)
+        {
+            return File.ReadAllText(path).Contains(val);
+        }
         [TestMethod()]
         public void SensorCollectionSerializationTest()
         {
+            var path = @"C:\Users\Dzaco\source\repos\SensorsMaster\SensorsMaster\Resources\SensorCollection.json";
+            if (File.Exists(path))
+                File.Delete(path);
+
             var poi1 = new POI(new Coordinates(1.2, 3.5));
             var poi2 = new POI();
 
@@ -35,15 +46,35 @@ namespace SensorsMaster.Common.Tests
             collection.Add(sensor);
             collection.Add(sensor2);
 
-            var stream = SerializationHelper.XmlSerialize(collection);
-            var path = @"C:\Users\Dzaco\source\repos\SensorsMaster\SensorsMaster\Resources\SensorCollection.xml";
-            FileManager.SaveStream(stream, path);
+            var json = JsonConvert.SerializeObject(collection);
+            Debug.WriteLine(json);
 
-            var xml = new XmlDocument();
-            xml.Load(path);
-            var node = xml.SelectSingleNode("//SensorCollection");
-            Assert.IsNotNull(node);
-            
+            FileManager.SaveStream(SerializationHelper.JsonSerialize(collection), path);
+
+            Assert.IsTrue(FileContains("Battery", path));
+
+        }
+
+        [TestMethod]
+        public void SensorCollectionDeserializationTest()
+        {
+            var path = @"C:\Users\Dzaco\source\repos\SensorsMaster\SensorsMaster\Resources\SensorCollection.json";
+            if (File.Exists(path))
+                File.Delete(path);
+
+            var builder = new SensorCollectionBuilder();
+            SensorCollection collection = builder.AddSensors(3)
+                .WithBatteryOn(1)
+                .BuildAndSave(path);
+
+            var testCollection = SerializationHelper
+                .JsonDeserialize<SensorCollection>
+                (FileManager.ReadStream(path));
+
+            Assert.IsTrue(
+                testCollection.Count == 3 &&
+                testCollection.Where(s =>
+                    s.Battery.Power == Power.On).Count() == 1);
         }
     }
 }

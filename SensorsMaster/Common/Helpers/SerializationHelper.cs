@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -50,6 +51,25 @@ namespace SensorsMaster.Common.Helpers
         public static T XmlClone<T>(T source)
         {
             return XmlDeserialize<T>(XmlSerialize(source));
+        }
+
+        public static Stream JsonSerialize(object source)
+        {
+            var json = JsonConvert.SerializeObject(source);
+            var bytes = Encoding.UTF8.GetBytes(json);
+            var stream = new MemoryStream( bytes );
+            stream.Seek(0, SeekOrigin.Begin);
+            return stream;
+        }
+        public static T JsonDeserialize<T>(Stream stream)
+        {
+            string json;
+            stream.Seek(0, SeekOrigin.Begin);
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                json = reader.ReadToEnd();
+            }
+            return JsonConvert.DeserializeObject<T>(json);
         }
     }
 }

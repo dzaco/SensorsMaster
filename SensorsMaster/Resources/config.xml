@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ConfigPath>C:\Users\Dzaco\source\repos\SensorsMaster\SensorsMaster\Resources\config.xml</ConfigPath>
-  <SensorSettings>
-    <Range>20</Range>
-    <Count>5</Count>
-    <BatteryCapacity>100</BatteryCapacity>
-  </SensorSettings>
-</Settings>

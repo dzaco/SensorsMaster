@@ -1,0 +1,8 @@
+{
+  "ConfigPath": "C:\\Users\\Dzaco\\source\\repos\\SensorsMaster\\SensorsMaster\\Resources\\config.json",
+  "SensorSettings": {
+    "Range": 20.0,
+    "Count": 5.0,
+    "BatteryCapacity": 100.0
+  }
+}

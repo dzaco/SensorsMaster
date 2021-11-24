@@ -1,18 +1,14 @@
 ﻿using SensorsMaster.AppSettings;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace SensorsMaster.Device.Model.Collection
 {
-    [XmlRoot(nameof(SensorCollection))]
     public class SensorCollection : List<Sensor>
     {
         #region Properties
-        [XmlIgnore]
+        [JsonIgnore]
         public Settings Settings => Settings.GetInstance(); 
         #endregion
     }

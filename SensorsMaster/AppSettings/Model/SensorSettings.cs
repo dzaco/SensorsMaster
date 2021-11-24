@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace SensorsMaster.AppSettings.Model
 {
-    [XmlRoot(nameof(SensorSettings))]
     public class SensorSettings
     {
         #region Singleton
@@ -32,11 +27,8 @@ namespace SensorsMaster.AppSettings.Model
         {
 
         }
-        [XmlElement]
         public double Range { get; set; } = 20;
-        [XmlElement]
         public double Count { get; set; } = 5;
-        [XmlElement]
         public double BatteryCapacity { get; set; } = 100;
     }
 }

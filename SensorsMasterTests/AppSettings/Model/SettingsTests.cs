@@ -16,15 +16,11 @@ namespace SensorsMaster.AppSettings.Model.Tests
                 File.Delete(FileManager.ConfigFile);
 
             var settings = Settings.GetInstance();
-            var stream = SerializationHelper.XmlSerialize(settings);
+            var stream = SerializationHelper.JsonSerialize(settings);
             FileManager.SaveConfig(stream);
 
             Assert.IsTrue(File.Exists(FileManager.ConfigFile));
-
-            var xml = new XmlDocument();
-            xml.Load(FileManager.ConfigFile);
-            var node = xml.SelectSingleNode("//ConfigPath");
-            Assert.IsNotNull(node);
+            Assert.IsTrue(File.ReadAllText(FileManager.ConfigFile).Contains("ConfigPath"));
             
         }
     }

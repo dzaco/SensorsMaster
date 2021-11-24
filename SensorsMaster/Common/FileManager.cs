@@ -13,7 +13,7 @@ namespace SensorsMaster.Common
         public static string ProjectPath = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory())));
         public static string ResourcePath = Path.Combine(ProjectPath, "SensorsMaster", "Resources");
         public static string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        public static string ConfigFile = Path.Combine(ResourcePath, "config.xml");
+        public static string ConfigFile = Path.Combine(ResourcePath, "config.json");
 
         public static string GetSavePathFromDialog(Extension extension)
         {
@@ -50,6 +50,11 @@ namespace SensorsMaster.Common
                 return dialog.FileName;
             else
                 return null;
+        }
+
+        public static void Save(string text, string path)
+        {
+            throw new NotImplementedException();
         }
 
         public static Stream ReadStream(string path)

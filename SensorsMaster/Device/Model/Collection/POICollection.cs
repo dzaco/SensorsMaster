@@ -1,14 +1,13 @@
 ﻿using SensorsMaster.AppSettings;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace SensorsMaster.Device.Model
 {
-    [XmlRoot(nameof(POICollection), IsNullable = false)]
     public class POICollection : List<POI>
     {
         #region Properties
-        [XmlIgnore]
+        [JsonIgnore]
         public Settings Settings => Settings.GetInstance();
         #endregion
         

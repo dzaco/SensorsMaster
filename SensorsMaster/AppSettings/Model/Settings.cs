@@ -1,15 +1,9 @@
 ﻿using SensorsMaster.AppSettings.Model;
 using SensorsMaster.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace SensorsMaster.AppSettings
 {
-    [XmlRoot(nameof(Settings))]
     public class Settings
     {
         #region Singleton
@@ -35,10 +29,8 @@ namespace SensorsMaster.AppSettings
         {
         }
 
-        [XmlElement]
         public string ConfigPath { get; set; } = FileManager.ConfigFile;
 
-        [XmlElement]
         public SensorSettings SensorSettings { get; set; } = SensorSettings.GetInstance();
     }
 }

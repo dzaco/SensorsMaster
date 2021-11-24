@@ -1,15 +1,12 @@
 ﻿using System.Windows;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace SensorsMaster.Device.Model
 {
-    [XmlRoot(nameof(Coordinates))]
     public class Coordinates
     {
         #region Properties
-        [XmlAttribute]
         public double X { get; set; }
-        [XmlAttribute]
         public double Y { get; set; } 
         #endregion
 
