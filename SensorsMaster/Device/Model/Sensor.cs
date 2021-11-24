@@ -1,6 +1,7 @@
 ﻿using SensorsMaster.Common.Enums;
 using System;
 using Newtonsoft.Json;
+using System.Windows;
 
 namespace SensorsMaster.Device.Model
 {
@@ -14,9 +15,9 @@ namespace SensorsMaster.Device.Model
             this.Range = this.Settings.SensorSettings.Range;
             this.POIInRange = new POICollection();
         } 
-        public Sensor(Coordinates coordinates, double range, Power power) : this()
+        public Sensor(Point coordinates, double range, Power power) : this()
         {
-            this.Coordinates = coordinates;
+            this.Point = coordinates;
             this.Range = range;
             this.Battery.Power = power;
         }

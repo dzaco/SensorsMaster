@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using System.Diagnostics;
 using System.IO;
 using SensorsMasterTests.Factory;
+using System.Windows;
 
 namespace SensorsMaster.Common.Tests
 {
@@ -30,16 +31,16 @@ namespace SensorsMaster.Common.Tests
             if (File.Exists(path))
                 File.Delete(path);
 
-            var poi1 = new POI(new Coordinates(1.2, 3.5));
+            var poi1 = new POI(new Point(1.2, 3.5));
             var poi2 = new POI();
 
             var sensor = new Sensor();
             sensor.POIInRange.Add(poi1, true);
             sensor.POIInRange.Add(poi2);
 
-            var poi3 = new POI(new Coordinates(1.2, 3.5));
+            var poi3 = new POI(new Point(1.2, 3.5));
 
-            var sensor2 = new Sensor(new Coordinates(10, 12.45), 12.3, Power.On);
+            var sensor2 = new Sensor(new Point(10, 12.45), 12.3, Power.On);
             sensor2.POIInRange.Add(poi3, true);
 
             var collection = new SensorCollection();

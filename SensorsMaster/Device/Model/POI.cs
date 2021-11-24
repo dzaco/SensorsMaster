@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using Newtonsoft.Json;
 
 namespace SensorsMaster.Device.Model
@@ -10,7 +11,7 @@ namespace SensorsMaster.Device.Model
         {
             Id = Count++;
         }
-        public POI(Coordinates coordinates) : base(coordinates) { }
+        public POI(Point coordinates) : base(coordinates) { }
         #endregion
 
         #region Properties

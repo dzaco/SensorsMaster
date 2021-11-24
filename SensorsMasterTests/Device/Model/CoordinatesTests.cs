@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SensorsMaster.Device.Model.Tests
 {
@@ -16,9 +17,9 @@ namespace SensorsMaster.Device.Model.Tests
         {
             var expectedDistance = 3.4;
             var poi1 = new POI();
-            var poi2 = new POI(new Coordinates(expectedDistance, 0));
+            var poi2 = new POI(new Point(expectedDistance, 0));
 
-            Assert.AreEqual(expectedDistance, poi1.Coordinates.Distance(poi2.Coordinates));
+            Assert.AreEqual(expectedDistance, poi1.Distance(poi2.Point));
         }
 
         [TestMethod()]
@@ -26,7 +27,7 @@ namespace SensorsMaster.Device.Model.Tests
         {
             var expectedDistance = 3.4;
             var poi1 = new POI();
-            var poi2 = new POI(new Coordinates(expectedDistance, 0));
+            var poi2 = new POI(new Point(expectedDistance, 0));
 
             Assert.AreEqual(expectedDistance, poi1.Distance(poi2));
         }
