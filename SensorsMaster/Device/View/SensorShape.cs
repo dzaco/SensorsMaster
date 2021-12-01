@@ -1,9 +1,11 @@
 ﻿using SensorsMaster.AppSettings;
 using SensorsMaster.AppSettings.Model;
 using SensorsMaster.Common.Enums;
+using SensorsMaster.Common.Extensions;
 using SensorsMaster.Device.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,8 +40,12 @@ namespace SensorsMaster.Device.View
         public override Geometry CreateGeometry()
         {
             GeometryGroup group = new GeometryGroup();
-            group.Children.Add(CreateCircle(Sensor.Point, 2));
-            group.Children.Add(CreateCircle(Sensor.Point, Sensor.Range));
+            var scale = Settings.SizeSettings.Scale;
+            var point = Sensor.Point.Factor(scale);
+            var range = Sensor.Range * scale;
+
+            group.Children.Add(CreateCircle(point, 2));
+            group.Children.Add(CreateCircle(point, range));
 
             this.Fill = new SolidColorBrush(GetColorFor(Sensor.Battery.Power));
             return group;
@@ -48,23 +54,11 @@ namespace SensorsMaster.Device.View
         private Geometry CreateCircle(Point point, double range)
         {
             var rangeGeometry = new EllipseGeometry();
-            rangeGeometry.Center = point;
+            rangeGeometry.Center = new Point(point.X, point.Y);
             rangeGeometry.RadiusX = range;
             rangeGeometry.RadiusY = range;
    
             return rangeGeometry;
-        }
-
-        private Geometry CreateSquere(Point point, double size)
-        {
-            var halfSize = size / 2;
-            var leftTop = new Point(point.X - halfSize, point.Y + halfSize);
-            var rightBottom = new Point(point.X + halfSize, point.Y - halfSize);
-
-            var center = new RectangleGeometry();
-            center.Rect = new Rect(leftTop, rightBottom);
-
-            return center;
         }
 
         private Color GetColorFor(Power power)

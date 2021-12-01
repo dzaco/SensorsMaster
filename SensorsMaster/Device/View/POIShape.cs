@@ -1,4 +1,6 @@
-﻿using SensorsMaster.Common.Interfaces;
+﻿using SensorsMaster.AppSettings;
+using SensorsMaster.Common.Extensions;
+using SensorsMaster.Common.Interfaces;
 using SensorsMaster.Device.Model;
 using System;
 using System.Collections.Generic;
@@ -35,7 +37,8 @@ namespace SensorsMaster.Device.View
         }
         public override Geometry CreateGeometry()
         {
-            var center = CreateSquere(POI.Point, Size);
+            var scale = Settings.SizeSettings.Scale;
+            var center = CreateSquere(POI.Point.Factor(scale), Size);
             if (POI.IsCovered)
                 this.Fill = System.Windows.Media.Brushes.Green;
             else

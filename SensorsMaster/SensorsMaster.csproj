@@ -68,6 +68,7 @@
       <DependentUpon>SizeSettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppSettings\Model\SizeSettings.cs" />
+    <Compile Include="Common\Extensions\PointExtension.cs" />
     <Compile Include="Common\Helpers\InputValidationHelper.cs" />
     <Compile Include="Common\Interfaces\IViewModelBase.cs" />
     <Compile Include="Device\ViewModel\SensorViewModel.cs" />
@@ -168,7 +169,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\Exceptions\" />
-    <Folder Include="Common\Extensions\" />
     <Folder Include="Images\" />
     <Folder Include="Resources\" />
   </ItemGroup>

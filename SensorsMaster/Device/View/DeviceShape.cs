@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SensorsMaster.AppSettings;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +13,8 @@ namespace SensorsMaster.Device.View
 {
     public abstract class DeviceShape : Shape
     {
+        public Settings Settings = Settings.GetInstance();
+
         public static readonly DependencyProperty SizeProperty =
         DependencyProperty.Register(
             name: "Size",
@@ -28,6 +32,7 @@ namespace SensorsMaster.Device.View
         public DeviceShape()
         {
             this.Stroke = Brushes.Black;
+            Settings.SizeSettings.PropertyChanged += Refresh;
         }
 
         protected override Geometry DefiningGeometry
@@ -42,7 +47,7 @@ namespace SensorsMaster.Device.View
         }
         public abstract Geometry CreateGeometry();
         public Geometry CustomGeometry { get; set; }
-        public void Refresh()
+        public void Refresh(object sender = null, PropertyChangedEventArgs e = null)
         {
             CustomGeometry = CreateGeometry();
         }
