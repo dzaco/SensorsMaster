@@ -1,6 +1,8 @@
 ﻿using SensorsMaster.AppSettings.Model;
 using SensorsMaster.Common;
 using Newtonsoft.Json;
+using System;
+using SensorsMaster.Common.Interfaces;
 
 namespace SensorsMaster.AppSettings
 {
@@ -27,11 +29,12 @@ namespace SensorsMaster.AppSettings
 
         private Settings()
         {
+            this.SensorSettings = SensorSettings.GetInstance();
+            this.SizeSettings = new SizeSettings();
         }
 
-        public string ConfigPath { get; set; } = FileManager.ConfigFile;
-
-        public SensorSettings SensorSettings { get; set; } = SensorSettings.GetInstance();
-        public double Scale { get; set; } = 5;
+        public string ConfigPath = FileManager.ConfigFile;
+        public SensorSettings SensorSettings { get; set; }
+        public SizeSettings SizeSettings { get; set; }
     }
 }

@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="SensorsMaster.AppSettings.View.SizeSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SensorsMaster.AppSettings.View"
+             xmlns:helpers="clr-namespace:SensorsMaster.Common.Helpers"
+             mc:Ignorable="d" >
+    <StackPanel Orientation="Vertical"
+                Margin="10">
+        <GroupBox>
+            <GroupBox.Header>
+                <Label>Size Settings</Label>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0"
+                       Content="Width"/>
+                <TextBox Grid.Row="0" Grid.Column="1"
+                           Text="{Binding Width, Mode=TwoWay}"/>
+                
+                <Label Grid.Row="1" Grid.Column="0"
+                       Content="Height"/>
+                <TextBox Grid.Row="1" Grid.Column="1"
+                           Text="{Binding Height, Mode=TwoWay}"/>
+
+                <Label Grid.Row="2" Grid.Column="0"
+                       Content="Scale"/>
+                <TextBox Grid.Row="2" Grid.Column="1"
+                         helpers:InputValidationHelper.OnlyNumeric="Double"
+                         Text="{Binding Scale, Mode=TwoWay}"/>
+            </Grid>
+        </GroupBox>
+    </StackPanel>
+</UserControl>
