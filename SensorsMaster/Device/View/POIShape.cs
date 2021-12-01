@@ -23,23 +23,25 @@ namespace SensorsMaster.Device.View
 
         public POI POI
         {
-            get => (POI)GetValue(POIProperty);
-            set => SetValue(POIProperty, value);
-        }
-
-
-        protected override Geometry DefiningGeometry
-        {
             get
             {
-                var center = CreateSquere(POI.Point, Size);
-                if (POI.IsCovered)
-                    this.Fill = System.Windows.Media.Brushes.Green;
-                else
-                    this.Fill = System.Windows.Media.Brushes.Transparent;
-                
-                return center;
+                return (POI)GetValue(POIProperty);
             }
+            set 
+            { 
+                SetValue(POIProperty, value);
+                Refresh();
+            }
+        }
+        public override Geometry CreateGeometry()
+        {
+            var center = CreateSquere(POI.Point, Size);
+            if (POI.IsCovered)
+                this.Fill = System.Windows.Media.Brushes.Green;
+            else
+                this.Fill = System.Windows.Media.Brushes.Transparent;
+
+            return center;
         }
 
         private Geometry CreateSquere(Point point, double size)

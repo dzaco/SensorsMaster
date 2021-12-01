@@ -18,11 +18,12 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Rectangle Width="{Binding Width}" Height="{Binding Width}"
+                    <view:POIShape POI="{Binding POI}"/>
+                    <!--<Rectangle Width="{Binding Width}" Height="{Binding Width}"
                                Margin="{Binding PositionAsMargin}"
                                StrokeThickness="1"
                                Stroke="Black">
-                    </Rectangle>
+                    </Rectangle>-->
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
@@ -35,11 +36,12 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Ellipse Width="{Binding Width}" Height="{Binding Width}"
+                    <view:SensorShape Sensor="{Binding Sensor}"/>
+                    <!--<Ellipse Width="{Binding Width}" Height="{Binding Width}"
                              Margin="{Binding PositionAsMargin}"
                              Fill="{Binding Color}"
                              Opacity="0.5">
-                    </Ellipse>
+                    </Ellipse>-->
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

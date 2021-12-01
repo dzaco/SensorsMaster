@@ -22,24 +22,27 @@ namespace SensorsMaster.Device.View
             ownerType: typeof(SensorShape),
             typeMetadata: new FrameworkPropertyMetadata(defaultValue: new Sensor()));
 
-
         public Sensor Sensor
-        {
-            get => (Sensor)GetValue(SensorProperty);
-            set => SetValue(SensorProperty, value);
-        }
-        
-        protected override Geometry DefiningGeometry
         {
             get
             {
-                GeometryGroup group = new GeometryGroup();
-                group.Children.Add(CreateCircle(Sensor.Point, 2));
-                group.Children.Add(CreateCircle(Sensor.Point, Sensor.Range));
-                
-                this.Fill = new SolidColorBrush(GetColorFor(Sensor.Battery.Power));
-                return group;
+                return (Sensor)GetValue(SensorProperty);
             }
+            set
+            {
+                SetValue(SensorProperty, value);
+                Refresh();
+            }
+        }
+
+        public override Geometry CreateGeometry()
+        {
+            GeometryGroup group = new GeometryGroup();
+            group.Children.Add(CreateCircle(Sensor.Point, 2));
+            group.Children.Add(CreateCircle(Sensor.Point, Sensor.Range));
+
+            this.Fill = new SolidColorBrush(GetColorFor(Sensor.Battery.Power));
+            return group;
         }
 
         private Geometry CreateCircle(Point point, double range)

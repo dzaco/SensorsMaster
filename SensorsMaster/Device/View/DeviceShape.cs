@@ -30,5 +30,21 @@ namespace SensorsMaster.Device.View
             this.Stroke = Brushes.Black;
         }
 
+        protected override Geometry DefiningGeometry
+        {
+            get
+            {
+                if (this.CustomGeometry is null)
+                    CustomGeometry = CreateGeometry();
+
+                return this.CustomGeometry;
+            }
+        }
+        public abstract Geometry CreateGeometry();
+        public Geometry CustomGeometry { get; set; }
+        public void Refresh()
+        {
+            CustomGeometry = CreateGeometry();
+        }
     }
 }
