@@ -59,13 +59,37 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppSettings\Model\Settings.cs" />
-    <Compile Include="Common\Interfaces\IHasPoint.cs" />
+    <Compile Include="AppSettings\ViewModel\SensorSettingsViewModel.cs" />
+    <Compile Include="AppSettings\ViewModel\SizeSettingsViewModel.cs" />
+    <Compile Include="AppSettings\View\SensorSettingsView.xaml.cs">
+      <DependentUpon>SensorSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppSettings\View\SizeSettingsView.xaml.cs">
+      <DependentUpon>SizeSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppSettings\Model\SizeSettings.cs" />
+    <Compile Include="Common\Helpers\InputValidationHelper.cs" />
+    <Compile Include="Common\Interfaces\IViewModelBase.cs" />
     <Compile Include="Device\ViewModel\SensorViewModel.cs" />
     <Compile Include="Device\View\DeviceShape.cs" />
     <Compile Include="Device\View\SensorShape.cs" />
     <Compile Include="TestWindow.xaml.cs">
       <DependentUpon>TestWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\NavigationBar.xaml.cs">
+      <DependentUpon>NavigationBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProgressBarWindow.xaml.cs">
+      <DependentUpon>ProgressBarWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AppSettings\View\SensorSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppSettings\View\SizeSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Boards\View\AreaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +127,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\NavigationBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProgressBarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings\Model\SensorSettings.cs" />
@@ -135,12 +167,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AppSettings\ViewModel\" />
-    <Folder Include="AppSettings\View\" />
     <Folder Include="Common\Exceptions\" />
     <Folder Include="Common\Extensions\" />
+    <Folder Include="Images\" />
     <Folder Include="Resources\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

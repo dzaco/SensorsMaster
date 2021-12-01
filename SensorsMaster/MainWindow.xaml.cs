@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SensorsMaster.AppSettings;
+using SensorsMaster.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,13 @@ namespace SensorsMaster
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Settings Settings { get; set; }
         public MainWindow()
         {
+            Settings = Settings.GetInstance();
             InitializeComponent();
+            WindowState = WindowState.Maximized;
+            this.DataContext = Settings;
         }
 
         private void TestClick(object sender, RoutedEventArgs e)

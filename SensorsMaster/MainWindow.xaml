@@ -4,25 +4,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SensorsMaster"
+        xmlns:boards="clr-namespace:SensorsMaster.Boards.View"
+        xmlns:settings="clr-namespace:SensorsMaster.AppSettings.View"
+        xmlns:views="clr-namespace:SensorsMaster.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
+        <!--<Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
                 <MenuItem Header="Save" Click="SaveStateClick">
-                    <!--<MenuItem.Icon>
+                    --><!--<MenuItem.Icon>
                         <Image Source="/Images/png/save-file-option.png"/>
-                    </MenuItem.Icon>-->
+                    </MenuItem.Icon>--><!--
                 </MenuItem>
                 <MenuItem Header="Load State" Click="LoadStateClick">
-                    <!--<MenuItem.Icon>
+                    --><!--<MenuItem.Icon>
                         <Image Source="/Images/png/open-folder-outline.png"/>
-                    </MenuItem.Icon>-->
+                    </MenuItem.Icon>--><!--
 
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Test" Click="TestClick"/>
 
-        </Menu>
+        </Menu>-->
+
+        <Border DockPanel.Dock="Left" Width="250"
+                BorderBrush="Black" BorderThickness="1">
+            <views:NavigationBar/>
+        </Border>
+        <Border x:Name="borderAreaView" 
+                BorderBrush="Black" BorderThickness="1" 
+                Margin="20 0"
+                Width="{Binding SizeSettings.VisualWidth, UpdateSourceTrigger=PropertyChanged}"
+                Height="{Binding SizeSettings.VisualHeight,UpdateSourceTrigger=PropertyChanged}">
+            <boards:AreaView />
+        </Border>
+        
     </DockPanel>
 </Window>
