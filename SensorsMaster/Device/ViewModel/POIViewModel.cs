@@ -20,5 +20,9 @@ namespace SensorsMaster.Device.ViewModel
         {
             this.POI = poi;
         }
+        public double Width { get; set; } = 5;
+        public double Left => POI.Point.X - (Width / 2);
+        public double Top => POI.Point.Y - (Width / 2);
+        public string PositionAsMargin => $"{Left} {Top} 0 0";
     }
 }

@@ -6,8 +6,7 @@
              xmlns:local="clr-namespace:SensorsMaster.Boards.View"
              xmlns:viewModel="clr-namespace:SensorsMaster.Device.ViewModel"
              xmlns:view="clr-namespace:SensorsMaster.Device.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="500">
+             mc:Ignorable="d">
 
 
     <Grid>
@@ -19,7 +18,11 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <view:POIShape POI="{Binding POI, Mode=TwoWay}"/>
+                    <Rectangle Width="{Binding Width}" Height="{Binding Width}"
+                               Margin="{Binding PositionAsMargin}"
+                               StrokeThickness="1"
+                               Stroke="Black">
+                    </Rectangle>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
@@ -32,7 +35,11 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <view:SensorShape Sensor="{Binding Sensor, Mode=TwoWay}"/>
+                    <Ellipse Width="{Binding Width}" Height="{Binding Width}"
+                             Margin="{Binding PositionAsMargin}"
+                             Fill="{Binding Color}"
+                             Opacity="0.5">
+                    </Ellipse>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

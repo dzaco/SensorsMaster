@@ -25,7 +25,7 @@ namespace SensorsMaster.Common.Enums
         public static Extension XML => new Extension(".xml", "XML-File | *.xml");
         public static Extension PNG => new Extension(".png", "Image files (*.png, *.jpg, *.jpeg) | *.png; *.jpg; *.jpeg;");
         public static Extension TXT => new Extension(".txt", "Txt files (*.txt)|*.txt");
-        public static Extension JSON => new Extension(".json", "json files *.json");
+        public static Extension JSON => new Extension(".json", "json files | *.json");
 
     }
 }

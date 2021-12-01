@@ -31,6 +31,7 @@ namespace SensorsMaster.Common
             else
                 return null;
         }
+
         public static string GetSavePathFromDialog()
         {
             return GetSavePathFromDialog(null);
@@ -79,9 +80,14 @@ namespace SensorsMaster.Common
         {
             SaveStream(stream, ConfigFile);
         }
-        public static Stream ReadConfig()
+        public static Stream ReadConfig(string path = null)
         {
-            if (File.Exists(FileManager.ConfigFile))
+            if (path != null && File.Exists(path))
+            {
+                FileManager.ConfigFile = path;
+                return ReadStream(ConfigFile);
+            }
+            else if (File.Exists(FileManager.ConfigFile))
                 return ReadStream(ConfigFile);
             else
                 return null;
