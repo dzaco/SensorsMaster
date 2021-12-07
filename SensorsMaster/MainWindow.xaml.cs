@@ -47,5 +47,11 @@ namespace SensorsMaster
             var collection = SerializationHelper.JsonDeserialize<POICollection, POICollectionJsonAdapter>(stream);
             this.Settings.POICollection = collection;
         }
+
+        private void TestClick(object sender, RoutedEventArgs e)
+        {
+            var testWindow = new TestWindow();
+            testWindow.Show();
+        }
     }
 }

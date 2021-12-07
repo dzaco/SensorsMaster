@@ -13,12 +13,11 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
                 <MenuItem Header="Save" Click="SaveStateClick">
-
                 </MenuItem>
                 <MenuItem Header="Load" Click="LoadStateClick">
-
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="Test" Click="TestClick"/>
         </Menu>
 
         <Border DockPanel.Dock="Left" Width="250"

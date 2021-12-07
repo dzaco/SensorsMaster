@@ -51,5 +51,26 @@ namespace SensorsMaster.Device.View
         {
             CustomGeometry = CreateGeometry();
         }
+
+        protected Geometry CreateSquere(Point point, double size)
+        {
+            var halfSize = size / 2;
+            var leftTop = new Point(point.X - halfSize, point.Y + halfSize);
+            var rightBottom = new Point(point.X + halfSize, point.Y - halfSize);
+
+            var center = new RectangleGeometry();
+            center.Rect = new Rect(leftTop, rightBottom);
+
+            return center;
+        }
+        protected Geometry CreateCircle(Point point, double range)
+        {
+            var rangeGeometry = new EllipseGeometry();
+            rangeGeometry.Center = new Point(point.X, point.Y);
+            rangeGeometry.RadiusX = range;
+            rangeGeometry.RadiusY = range;
+
+            return rangeGeometry;
+        }
     }
 }

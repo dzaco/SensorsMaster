@@ -69,6 +69,9 @@
       <DependentUpon>SizeSettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppSettings\Model\SizeSettings.cs" />
+    <Compile Include="Boards\View\GridNodesView.xaml.cs">
+      <DependentUpon>GridNodesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Common\Extensions\PointExtension.cs" />
     <Compile Include="Common\Helpers\InputValidationHelper.cs" />
     <Compile Include="Common\Helpers\JsonSerializattionAdapter.cs" />
@@ -77,7 +80,11 @@
     <Compile Include="Device\Model\Collection\POICollectionJsonAdapter.cs" />
     <Compile Include="Device\ViewModel\SensorViewModel.cs" />
     <Compile Include="Device\View\DeviceShape.cs" />
+    <Compile Include="Device\View\PointShape.cs" />
     <Compile Include="Device\View\SensorShape.cs" />
+    <Compile Include="Generators\GridGenerators\GridGenerator.cs" />
+    <Compile Include="Generators\GridGenerators\GridNodes.cs" />
+    <Compile Include="Generators\GridGenerators\SquareGridGenerator.cs" />
     <Compile Include="TestWindow.xaml.cs">
       <DependentUpon>TestWindow.xaml</DependentUpon>
     </Compile>
@@ -96,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Boards\View\AreaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Boards\View\GridNodesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,6 +185,7 @@
   <ItemGroup>
     <Folder Include="Common\Exceptions\" />
     <Folder Include="Device\ViewModel\Collection\" />
+    <Folder Include="Generators\Interfaces\" />
     <Folder Include="Images\" />
     <Folder Include="Resources\" />
   </ItemGroup>

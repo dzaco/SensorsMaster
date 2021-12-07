@@ -50,17 +50,5 @@ namespace SensorsMaster.Device.View
             return center;
         }
 
-        private Geometry CreateSquere(Point point, double size)
-        {
-            var halfSize = size / 2;
-            var leftTop = new Point(point.X - halfSize, point.Y + halfSize);
-            var rightBottom = new Point(point.X + halfSize, point.Y - halfSize);
-
-            var center = new RectangleGeometry();
-            center.Rect = new Rect(leftTop, rightBottom);
-
-            return center;
-        }
-
     }
 }

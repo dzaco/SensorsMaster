@@ -51,16 +51,6 @@ namespace SensorsMaster.Device.View
             return group;
         }
 
-        private Geometry CreateCircle(Point point, double range)
-        {
-            var rangeGeometry = new EllipseGeometry();
-            rangeGeometry.Center = new Point(point.X, point.Y);
-            rangeGeometry.RadiusX = range;
-            rangeGeometry.RadiusY = range;
-   
-            return rangeGeometry;
-        }
-
         private Color GetColorFor(Power power)
         {
             if(power == Power.On)

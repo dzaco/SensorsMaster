@@ -71,6 +71,7 @@
     <Compile Include="Device\Model\BoardElementTests.cs" />
     <Compile Include="Device\Model\CoordinatesTests.cs" />
     <Compile Include="Factory\SensorCollectionBuilder.cs" />
+    <Compile Include="Generators\GridGenerators\SquareGridGeneratorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AppSettings\Model\SettingsTests.cs" />
   </ItemGroup>
