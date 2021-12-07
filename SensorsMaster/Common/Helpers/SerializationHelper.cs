@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SensorsMaster.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -61,15 +62,36 @@ namespace SensorsMaster.Common.Helpers
             stream.Seek(0, SeekOrigin.Begin);
             return stream;
         }
-        public static T JsonDeserialize<T>(Stream stream)
+        public static T JsonDeserialize<T>(Stream stream, bool keepOpen = false)
         {
             string json;
             stream.Seek(0, SeekOrigin.Begin);
-            using (StreamReader reader = new StreamReader(stream))
+            StreamReader reader = new StreamReader(stream);
+            json = reader.ReadToEnd();
+            var result = JsonConvert.DeserializeObject<T>(json);
+            if (keepOpen == false)
             {
-                json = reader.ReadToEnd();
+                reader.Dispose();
+                stream.Dispose();
             }
-            return JsonConvert.DeserializeObject<T>(json);
+            return result;
         }
+
+        public static TResult JsonDeserialize<TResult, TAdapter>(Stream stream) where TAdapter : IJsonAdapter<TResult>
+        {
+            try
+            {
+                return JsonDeserialize<TResult>(stream, keepOpen: true);
+            }
+            catch(Exception)
+            {
+                return JsonSerializattionAdapter.JsonDeserializeAdapter<TResult, TAdapter>(stream);
+            }
+            finally
+            {
+                stream.Dispose();
+            }
+        }
+
     }
 }

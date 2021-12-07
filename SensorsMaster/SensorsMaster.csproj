@@ -60,6 +60,7 @@
     </ApplicationDefinition>
     <Compile Include="AppSettings\Model\Settings.cs" />
     <Compile Include="AppSettings\ViewModel\SensorSettingsViewModel.cs" />
+    <Compile Include="AppSettings\ViewModel\SettingsViewModel.cs" />
     <Compile Include="AppSettings\ViewModel\SizeSettingsViewModel.cs" />
     <Compile Include="AppSettings\View\SensorSettingsView.xaml.cs">
       <DependentUpon>SensorSettingsView.xaml</DependentUpon>
@@ -70,7 +71,10 @@
     <Compile Include="AppSettings\Model\SizeSettings.cs" />
     <Compile Include="Common\Extensions\PointExtension.cs" />
     <Compile Include="Common\Helpers\InputValidationHelper.cs" />
+    <Compile Include="Common\Helpers\JsonSerializattionAdapter.cs" />
+    <Compile Include="Common\Interfaces\IJsonAdapter.cs" />
     <Compile Include="Common\Interfaces\IViewModelBase.cs" />
+    <Compile Include="Device\Model\Collection\POICollectionJsonAdapter.cs" />
     <Compile Include="Device\ViewModel\SensorViewModel.cs" />
     <Compile Include="Device\View\DeviceShape.cs" />
     <Compile Include="Device\View\SensorShape.cs" />
@@ -169,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\Exceptions\" />
+    <Folder Include="Device\ViewModel\Collection\" />
     <Folder Include="Images\" />
     <Folder Include="Resources\" />
   </ItemGroup>

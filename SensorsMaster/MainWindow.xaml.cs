@@ -1,4 +1,10 @@
 ﻿using SensorsMaster.AppSettings;
+using SensorsMaster.AppSettings.ViewModel;
+using SensorsMaster.Common;
+using SensorsMaster.Common.Enums;
+using SensorsMaster.Common.Helpers;
+using SensorsMaster.Device.Model;
+using SensorsMaster.Device.Model.Collection;
 using SensorsMaster.View;
 using System;
 using System.Collections.Generic;
@@ -31,18 +37,15 @@ namespace SensorsMaster
             this.DataContext = Settings;
         }
 
-        private void TestClick(object sender, RoutedEventArgs e)
-        {
-            var test = new TestWindow();
-            test.Show();
-        }
         private void SaveStateClick(object sender, RoutedEventArgs e)
         {
-
         }
         private void LoadStateClick(object sender, RoutedEventArgs e)
         {
-
+            var path = FileManager.GetLoadPathFromDialog(Extension.JSON);
+            var stream = FileManager.ReadStream(path);
+            var collection = SerializationHelper.JsonDeserialize<POICollection, POICollectionJsonAdapter>(stream);
+            this.Settings.POICollection = collection;
         }
     }
 }

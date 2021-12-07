@@ -10,23 +10,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
-        <!--<Menu DockPanel.Dock="Top">
+        <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
                 <MenuItem Header="Save" Click="SaveStateClick">
-                    --><!--<MenuItem.Icon>
-                        <Image Source="/Images/png/save-file-option.png"/>
-                    </MenuItem.Icon>--><!--
+
                 </MenuItem>
-                <MenuItem Header="Load State" Click="LoadStateClick">
-                    --><!--<MenuItem.Icon>
-                        <Image Source="/Images/png/open-folder-outline.png"/>
-                    </MenuItem.Icon>--><!--
+                <MenuItem Header="Load" Click="LoadStateClick">
 
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Test" Click="TestClick"/>
-
-        </Menu>-->
+        </Menu>
 
         <Border DockPanel.Dock="Left" Width="250"
                 BorderBrush="Black" BorderThickness="1">
