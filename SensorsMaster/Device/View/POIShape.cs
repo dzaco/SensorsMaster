@@ -22,7 +22,10 @@ namespace SensorsMaster.Device.View
             ownerType: typeof(POIShape),
             typeMetadata: new FrameworkPropertyMetadata(defaultValue: new POI()));
 
-
+        public POIShape(POI poi)
+        {
+            this.POI = poi;
+        }
         public POI POI
         {
             get

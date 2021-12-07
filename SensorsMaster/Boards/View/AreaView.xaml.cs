@@ -1,11 +1,15 @@
-﻿using SensorsMaster.Boards.ViewModel;
+﻿using SensorsMaster.AppSettings;
+using SensorsMaster.AppSettings.ViewModel;
+using SensorsMaster.Boards.ViewModel;
 using SensorsMaster.Common.Enums;
 using SensorsMaster.Device.Model;
+using SensorsMaster.Device.Model.Collection;
 using SensorsMaster.Device.View;
 using SensorsMaster.Device.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,27 +30,61 @@ namespace SensorsMaster.Boards.View
     /// </summary>
     public partial class AreaView : UserControl
     {
+        public Settings Settings => Settings.GetInstance();
+        public SettingsViewModel SettingsVM;
+
         public AreaViewModel Area;
         public ObservableCollection<POIViewModel> POICollection { get; private set; }
         public ObservableCollection<SensorViewModel> SensorCollection { get; private set; }
         public AreaView()
         {
-            POICollection = new ObservableCollection<POIViewModel>
-            {
-                new POIViewModel( new POI(10,10){ IsCovered = true } ),
-                new POIViewModel( new POI(20,10) ),
-                new POIViewModel( new POI(30,10) ),
-                new POIViewModel( new POI(40,10) )
-            };
-
-            SensorCollection = new ObservableCollection<SensorViewModel>
-            {
-                new SensorViewModel( new Sensor( new Point(30,30), 30, Power.On) ),
-                new SensorViewModel( new Sensor( new Point(60,30), 30, Power.Off) )
-            };
+            SettingsVM = new SettingsViewModel();
+            POICollection = CreatePOICollection(Settings.POICollection);
+            SensorCollection = CreateSensorCollection(Settings.SensorCollection);
 
             InitializeComponent();
             DataContext = this;
+
+            DetectChanges();
+            DrawShapes();
+        }
+
+        private void DetectChanges()
+        {
+            this.Settings.PropertyChanged += Refresh;
+            this.Settings.SizeSettings.PropertyChanged += DrawShapes;
+        }
+
+        private void Refresh(object sender, PropertyChangedEventArgs e)
+        {
+            POICollection = CreatePOICollection(Settings.POICollection);
+            SensorCollection = CreateSensorCollection(Settings.SensorCollection);
+            DrawShapes();
+        }
+        private void DrawShapes(object sender = null, PropertyChangedEventArgs e = null)
+        {
+            this.AreaCanvas.Children.Clear();
+            foreach (var poi in this.POICollection)
+            {
+                this.AreaCanvas.Children.Add(new POIShape(poi.POI) );
+            }
+
+        }
+        private ObservableCollection<SensorViewModel> CreateSensorCollection(SensorCollection sensorCollection)
+        {
+            var result = new ObservableCollection<SensorViewModel>();
+            foreach (var sensor in sensorCollection)
+                result.Add(new SensorViewModel(sensor));
+            return result;
+        }
+
+        private ObservableCollection<POIViewModel> CreatePOICollection(POICollection collection)
+        {
+            var result = new ObservableCollection<POIViewModel>();
+            foreach (var poi in collection)
+                result.Add(new POIViewModel(poi));
+
+            return result;
         }
 
         private void Canvas_MouseDown(object sender, MouseButtonEventArgs e)

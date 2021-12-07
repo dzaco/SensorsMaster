@@ -8,8 +8,11 @@
              xmlns:view="clr-namespace:SensorsMaster.Device.View"
              mc:Ignorable="d">
 
+    <Canvas x:Name="AreaCanvas">
 
-    <Grid>
+    </Canvas>
+    
+    <!--<Grid>
         <ItemsControl ItemsSource="{Binding POICollection}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -18,17 +21,17 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <view:POIShape POI="{Binding POI}"/>
-                    <!--<Rectangle Width="{Binding Width}" Height="{Binding Width}"
+                    <view:POIShape POI="{Binding POI, UpdateSourceTrigger=PropertyChanged}"/>
+                    --><!--<Rectangle Width="{Binding Width}" Height="{Binding Width}"
                                Margin="{Binding PositionAsMargin}"
                                StrokeThickness="1"
                                Stroke="Black">
-                    </Rectangle>-->
+                    </Rectangle>--><!--
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <ItemsControl ItemsSource="{Binding SensorCollection}">
+        <ItemsControl ItemsSource="{Binding SensorCollection, UpdateSourceTrigger=PropertyChanged}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Canvas/>
@@ -37,14 +40,14 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <view:SensorShape Sensor="{Binding Sensor}"/>
-                    <!--<Ellipse Width="{Binding Width}" Height="{Binding Width}"
+                    --><!--<Ellipse Width="{Binding Width}" Height="{Binding Width}"
                              Margin="{Binding PositionAsMargin}"
                              Fill="{Binding Color}"
                              Opacity="0.5">
-                    </Ellipse>-->
+                    </Ellipse>--><!--
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-    </Grid>
+    </Grid>-->
 
 </UserControl>

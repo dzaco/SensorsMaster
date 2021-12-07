@@ -77,5 +77,53 @@ namespace SensorsMaster.Common.Tests
                 testCollection.Where(s =>
                     s.Battery.Power == Power.On).Count() == 1);
         }
+
+        [TestMethod]
+        public void POICollectionDeserializationTestWithAdapter()
+        {
+            var path = @"C:\Users\Dzaco\Desktop\Private\magisterka\test\testCase.json";
+            var stream = FileManager.ReadStream(path);
+            var poiCollection = SerializationHelper.JsonDeserialize<POICollection, POICollectionJsonAdapter>(stream);
+            Assert.IsNotNull(poiCollection);
+            Assert.IsTrue(poiCollection.Count > 0);
+        }
+
+        [TestMethod]
+        public void POICollectionSerializationTest()
+        {
+            var path = @"C:\Users\Dzaco\Desktop\Private\magisterka\test\test2.json";
+            if (File.Exists(path))
+                File.Delete(path);
+
+            var poiCollection = new POICollection();
+            poiCollection.Add(new POI(10, 20));
+            poiCollection.Add(new POI(30, 40), true);
+
+            var stream = SerializationHelper.JsonSerialize(poiCollection);
+            FileManager.SaveStream(stream, path);
+
+            Assert.IsTrue(File.Exists(path));
+            Assert.IsTrue(File.ReadAllText(path).Length > 5);
+        }
+
+        [TestMethod]
+        public void POICollectionSerializationTestWithAdapter()
+        {
+            var path = @"C:\Users\Dzaco\Desktop\Private\magisterka\test\test2.json";
+            if (File.Exists(path))
+                File.Delete(path);
+
+            var poiCollection = new POICollection();
+            poiCollection.Add(new POI(10, 20));
+            poiCollection.Add(new POI(30, 40), true);
+            var adapter = new POICollectionJsonAdapter(poiCollection);
+
+            var stream = SerializationHelper.JsonSerialize(adapter);
+            FileManager.SaveStream(stream, path);
+
+            Assert.IsTrue(File.Exists(path));
+            Assert.IsTrue(File.ReadAllText(path).Length > 5);
+        }
+
     }
 }

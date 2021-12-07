@@ -3,10 +3,12 @@ using SensorsMaster.Common;
 using Newtonsoft.Json;
 using System;
 using SensorsMaster.Common.Interfaces;
+using SensorsMaster.Device.Model;
+using SensorsMaster.Device.Model.Collection;
 
 namespace SensorsMaster.AppSettings
 {
-    public class Settings
+    public class Settings : ViewModelBase
     {
         #region Singleton
         private static Settings _instance;
@@ -29,12 +31,52 @@ namespace SensorsMaster.AppSettings
 
         private Settings()
         {
-            this.SensorSettings = SensorSettings.GetInstance();
-            this.SizeSettings = new SizeSettings();
+            sensorSettings = SensorSettings.GetInstance();
+            sizeSettings = new SizeSettings();
+            poiCollection = new POICollection();
+            sensorCollection = new SensorCollection();
         }
 
-        public string ConfigPath = FileManager.ConfigFile;
-        public SensorSettings SensorSettings { get; set; }
-        public SizeSettings SizeSettings { get; set; }
+        private SensorSettings sensorSettings;
+        private SizeSettings sizeSettings;
+        private POICollection poiCollection;
+        private SensorCollection sensorCollection;
+
+        public SensorSettings SensorSettings
+        {
+            get { return sensorSettings; }
+            set
+            {
+                sensorSettings = value;
+                OnPropertyChanged(SensorSettings);
+            }
+        }
+        public SizeSettings SizeSettings
+        {
+            get { return sizeSettings; }
+            set
+            {
+                sizeSettings = value;
+                OnPropertyChanged(sizeSettings);
+            }
+        }
+        public POICollection POICollection
+        {
+            get { return poiCollection; }
+            set
+            {
+                poiCollection = value;
+                OnPropertyChanged(poiCollection);
+            }
+        }
+        public SensorCollection SensorCollection
+        {
+            get { return sensorCollection; }
+            set
+            {
+                sensorCollection = value;
+                OnPropertyChanged(sensorCollection);
+            }
+        }
     }
 }
