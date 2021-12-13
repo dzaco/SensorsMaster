@@ -24,13 +24,27 @@
                 BorderBrush="Black" BorderThickness="1">
             <views:NavigationBar/>
         </Border>
-        <Border x:Name="borderAreaView" 
+        <TabControl>
+            <TabItem Header="Grid">
+                <Border x:Name="borderGridView" 
                 BorderBrush="Black" BorderThickness="1" 
                 Margin="20 0"
                 Width="{Binding SizeSettings.VisualWidth, UpdateSourceTrigger=PropertyChanged}"
                 Height="{Binding SizeSettings.VisualHeight,UpdateSourceTrigger=PropertyChanged}">
-            <boards:AreaView />
-        </Border>
+                    <boards:GridNodesView/>
+                </Border>
+            </TabItem>
+            
+            <TabItem Header="Area">
+                <Border x:Name="borderAreaView" 
+                BorderBrush="Black" BorderThickness="1" 
+                Margin="20 0"
+                Width="{Binding SizeSettings.VisualWidth, UpdateSourceTrigger=PropertyChanged}"
+                Height="{Binding SizeSettings.VisualHeight,UpdateSourceTrigger=PropertyChanged}">
+                    <boards:AreaView />
+                </Border>
+            </TabItem>
+        </TabControl>
         
     </DockPanel>
 </Window>

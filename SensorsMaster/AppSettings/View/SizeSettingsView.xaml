@@ -26,12 +26,14 @@
                 <Label Grid.Row="0" Grid.Column="0"
                        Content="Width"/>
                 <TextBox Grid.Row="0" Grid.Column="1"
-                           Text="{Binding Width, Mode=TwoWay}"/>
+                         helpers:InputValidationHelper.OnlyNumeric="Double"
+                         Text="{Binding Width, Mode=TwoWay}"/>
                 
                 <Label Grid.Row="1" Grid.Column="0"
                        Content="Height"/>
                 <TextBox Grid.Row="1" Grid.Column="1"
-                           Text="{Binding Height, Mode=TwoWay}"/>
+                         helpers:InputValidationHelper.OnlyNumeric="Double"
+                         Text="{Binding Height, Mode=TwoWay}"/>
 
                 <Label Grid.Row="2" Grid.Column="0"
                        Content="Scale"/>

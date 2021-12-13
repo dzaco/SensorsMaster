@@ -58,10 +58,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AppSettings\Model\GridGeneratorSettings.cs" />
     <Compile Include="AppSettings\Model\Settings.cs" />
     <Compile Include="AppSettings\ViewModel\SensorSettingsViewModel.cs" />
     <Compile Include="AppSettings\ViewModel\SettingsViewModel.cs" />
     <Compile Include="AppSettings\ViewModel\SizeSettingsViewModel.cs" />
+    <Compile Include="AppSettings\View\GridGeneratorSettingsView.xaml.cs">
+      <DependentUpon>GridGeneratorSettingsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppSettings\View\SensorSettingsView.xaml.cs">
       <DependentUpon>SensorSettingsView.xaml</DependentUpon>
     </Compile>
@@ -84,6 +88,7 @@
     <Compile Include="Device\View\SensorShape.cs" />
     <Compile Include="Generators\GridGenerators\GridGenerator.cs" />
     <Compile Include="Generators\GridGenerators\GridNodes.cs" />
+    <Compile Include="Generators\GridGenerators\GridNode.cs" />
     <Compile Include="Generators\GridGenerators\SquareGridGenerator.cs" />
     <Compile Include="TestWindow.xaml.cs">
       <DependentUpon>TestWindow.xaml</DependentUpon>
@@ -94,6 +99,10 @@
     <Compile Include="View\ProgressBarWindow.xaml.cs">
       <DependentUpon>ProgressBarWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="AppSettings\View\GridGeneratorSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AppSettings\View\SensorSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

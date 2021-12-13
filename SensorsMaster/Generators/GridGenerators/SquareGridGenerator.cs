@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SensorsMaster.AppSettings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,9 @@ namespace SensorsMaster.Generators.GridGenerators
 {
     public class SquareGridGenerator : GridGenerator
     {
-        public SquareGridGenerator(int rows, int cols) : base(rows, cols)
+        public SquareGridGenerator(double distance) : base(distance)
+        { }
+        public SquareGridGenerator() : this(Settings.GetInstance().GridGeneratorSettings.Distance)
         { }
 
         public override GridNodes Generate()
@@ -18,8 +21,9 @@ namespace SensorsMaster.Generators.GridGenerators
             {
                 for(int col = 0; col < Columns; col++)
                 {
-                    var p = new Point((col+1) * DistanceHorizontally, (row+1) * DistanceVertically);
-                    GridNodes[row, col] = p;
+                    var p = new Point((col+1) * Distance, (row+1) * Distance);
+                    var node = new GridNode(row, p, isFirstInRow: col == 0, isLastInRow: col == Columns-1);
+                    GridNodes.Add(node);
                 }
             }
             return GridNodes;

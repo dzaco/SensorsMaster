@@ -16,9 +16,9 @@ namespace SensorsMaster.Generators.GridGenerators.Tests
         public void GenerateTest()
         {
             var settings = Settings.GetInstance();
-            settings.SizeSettings.Width = 20;
-            settings.SizeSettings.Height = 20;
-            GridGenerator generator = new SquareGridGenerator(4, 2);
+            settings.SizeSettings.Width = 10;
+            settings.SizeSettings.Height = 10;
+            GridGenerator generator = new SquareGridGenerator(distance:2);
             var gridNodes = generator.Generate();
             gridNodes.Console();
         }

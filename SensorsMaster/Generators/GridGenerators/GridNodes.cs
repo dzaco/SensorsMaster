@@ -2,44 +2,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 
 namespace SensorsMaster.Generators.GridGenerators
 {
-    public class GridNodes
+    public class GridNodes : IEnumerable<GridNode>
     {
-        private Point[,] points;
-        public GridNodes(int rows, int cols)
+        private List<GridNode> nodes;
+        public GridNodes()
         {
-            Rows = rows;
-            Cols = cols;
-            points = new Point[rows,cols];
+            nodes = new List<GridNode>();
         }
 
-        public int Rows { get; }
-        public int Cols { get; }
-
-        public Point this[int row,int col]
+        public int Rows { get; private set; }
+        public void Add(GridNode node)
         {
-            get { return this.points[row, col]; }
-            set { this.points[row, col] = value; }
+            if (node.Row > Rows)
+                Rows = node.Row;
+            nodes.Add(node);
         }
 
+        public GridNode this[int row, int col] => nodes.Where(node => node.Row == row).ElementAt(col);
         public void Console()
         {
-            int col = 0;
-            foreach(var point in points)
+            int currRow = 0;
+            foreach(var node in nodes)
             {
-                Debug.Write($"[{point.X}, {point.Y}]\t");
-                col++;
-                if (col == Cols)
+                Debug.Write($"[{node.Point.X}, {node.Point.Y}]\t");
+                //if(node.Row != currRow)
+                if(node.IsLastInRow)
                 {
-                    col = 0;
+                    currRow = node.Row;
                     Debug.Write("\n");
                 }
             }
         }
 
-        
+        public IEnumerator<GridNode> GetEnumerator()
+        {
+            return nodes.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return nodes.GetEnumerator();
+        }
     }
 }

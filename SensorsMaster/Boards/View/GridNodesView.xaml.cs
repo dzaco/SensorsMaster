@@ -26,7 +26,7 @@ namespace SensorsMaster.Boards.View
         public GridNodes Grid { get; set; }
         public GridNodesView()
         {
-            Grid = new SquareGridGenerator(5,5).Generate();
+            Grid = new SquareGridGenerator().Generate();
             this.DataContext = Grid;
             InitializeComponent();
             DrawShapes();
@@ -35,13 +35,9 @@ namespace SensorsMaster.Boards.View
         private void DrawShapes(object sender = null, PropertyChangedEventArgs e = null)
         {
             this.Canvas.Children.Clear();
-            for(var row = 0; row < Grid.Rows; row++)
+            foreach (var node in Grid)
             {
-                for(var col = 0; col < Grid.Cols; col++)
-                {
-                    var point = Grid[row, col];
-                    this.Canvas.Children.Add(new PointShape(point));
-                }
+                this.Canvas.Children.Add(new PointShape(node.Point));
             }
         }
     }

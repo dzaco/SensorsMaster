@@ -35,12 +35,14 @@ namespace SensorsMaster.AppSettings
             sizeSettings = new SizeSettings();
             poiCollection = new POICollection();
             sensorCollection = new SensorCollection();
+            gridGeneratorSettings = new GridGeneratorSettings();
         }
 
         private SensorSettings sensorSettings;
         private SizeSettings sizeSettings;
         private POICollection poiCollection;
         private SensorCollection sensorCollection;
+        private GridGeneratorSettings gridGeneratorSettings;
 
         public SensorSettings SensorSettings
         {
@@ -76,6 +78,15 @@ namespace SensorsMaster.AppSettings
             {
                 sensorCollection = value;
                 OnPropertyChanged(sensorCollection);
+            }
+        }
+        public GridGeneratorSettings GridGeneratorSettings
+        {
+            get { return gridGeneratorSettings; }
+            set
+            {
+                gridGeneratorSettings = value;
+                OnPropertyChanged(GridGeneratorSettings);
             }
         }
     }
