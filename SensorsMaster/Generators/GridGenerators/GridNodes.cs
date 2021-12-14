@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SensorsMaster.Device.Model;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,12 +11,21 @@ namespace SensorsMaster.Generators.GridGenerators
     public class GridNodes : IEnumerable<GridNode>
     {
         private List<GridNode> nodes;
-        public GridNodes()
+        public POICollection POICollection { get; set; }
+        public GridNodes(double distance, int rows, int columns)
         {
             nodes = new List<GridNode>();
+            POICollection = new POICollection();
+
+            Distance = distance;
+            Rows = rows;
+            Columns = columns;
         }
 
         public int Rows { get; private set; }
+        public double Distance { get; }
+        public double Columns { get; }
+
         public void Add(GridNode node)
         {
             if (node.Row > Rows)

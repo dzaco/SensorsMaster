@@ -1,4 +1,5 @@
-﻿using SensorsMaster.Common.Interfaces;
+﻿using SensorsMaster.Common.Enums;
+using SensorsMaster.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,13 @@ namespace SensorsMaster.AppSettings.Model
     {
         private GridShape gridShape;
         private double distance;
+        private POIGenerateStrategy poiGenerateStrategy;
 
         public GridGeneratorSettings()
         {
             gridShape = GridShape.Square;
             distance = 20;
+            poiGenerateStrategy = new POIGenerateStrategy();
         }
 
         public GridShape GridShape
@@ -36,11 +39,5 @@ namespace SensorsMaster.AppSettings.Model
                 OnPropertyChanged(distance);
             }
         }
-    }
-    public enum GridShape
-    {
-        Triangular,
-        Square,
-        Hexagonal
     }
 }

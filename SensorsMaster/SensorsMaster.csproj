@@ -76,6 +76,12 @@
     <Compile Include="Boards\View\GridNodesView.xaml.cs">
       <DependentUpon>GridNodesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\Enums\POIPositionStrategy.cs" />
+    <Compile Include="Common\Exceptions\SettingsExeption.cs" />
+    <Compile Include="Generators\GridGenerators\FillRandomNodesStrategy.cs" />
+    <Compile Include="Generators\GridGenerators\FillNodesStrategy.cs" />
+    <Compile Include="Common\Enums\GridShape.cs" />
+    <Compile Include="Common\Enums\POIGenerateStrategy.cs" />
     <Compile Include="Common\Extensions\PointExtension.cs" />
     <Compile Include="Common\Helpers\InputValidationHelper.cs" />
     <Compile Include="Common\Helpers\JsonSerializattionAdapter.cs" />
@@ -86,10 +92,12 @@
     <Compile Include="Device\View\DeviceShape.cs" />
     <Compile Include="Device\View\PointShape.cs" />
     <Compile Include="Device\View\SensorShape.cs" />
+    <Compile Include="Generators\GridGenerators\FillNodesWithProbabilityStrategy.cs" />
     <Compile Include="Generators\GridGenerators\GridGenerator.cs" />
     <Compile Include="Generators\GridGenerators\GridNodes.cs" />
     <Compile Include="Generators\GridGenerators\GridNode.cs" />
     <Compile Include="Generators\GridGenerators\SquareGridGenerator.cs" />
+    <Compile Include="Generators\POIGenerators\POIGenerator.cs" />
     <Compile Include="TestWindow.xaml.cs">
       <DependentUpon>TestWindow.xaml</DependentUpon>
     </Compile>
@@ -192,7 +200,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\Exceptions\" />
     <Folder Include="Device\ViewModel\Collection\" />
     <Folder Include="Generators\Interfaces\" />
     <Folder Include="Images\" />

@@ -11,11 +11,11 @@ namespace SensorsMaster.AppSettings.Model
 {
     public class SizeSettings : DependencyObject, IViewModelBase
     {
-        public SizeSettings(double width = 1200.0, double height = 800.0)
+        public SizeSettings(double width = 100.0, double height = 100.0)
         {
             this.Width = width;
             this.Height = height;
-            this.Scale = 1.0;
+            this.Scale = 7.0;
         }
 
         public double Height

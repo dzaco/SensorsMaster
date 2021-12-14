@@ -9,15 +9,18 @@ namespace SensorsMaster.Device.Model
         #region Constructors
         public POI() : base()
         {
-            Id = Count++;
+            Id = AutoIncrement++;
         }
-        public POI(Point coordinates) : base(coordinates) { }
-        public POI(double x, double y) : base(x, y) { }
+        public POI(Point coordinates) : base(coordinates) 
+        {
+            Id = AutoIncrement++;
+        }
+        public POI(double x, double y) : this(new Point(x,y)) { }
         #endregion
 
         #region Properties
         [JsonIgnore]
-        public static int Count { get; private set; }
+        public static int AutoIncrement { get; set; }
 
         public bool IsCovered { get; set; } 
         #endregion

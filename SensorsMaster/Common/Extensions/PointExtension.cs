@@ -13,5 +13,9 @@ namespace SensorsMaster.Common.Extensions
         {
             return new Point(point.X * scale, point.Y * scale);
         }
+        public static Point Shift(this Point point, double x, double y)
+        {
+            return new Point(point.X + x, point.Y + y);
+        }
     }
 }

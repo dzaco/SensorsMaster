@@ -9,7 +9,7 @@ namespace SensorsMaster.Device.Model
     {
         public POICollection()
         {
-            
+            POI.AutoIncrement = 0;
         }
         #region Properties
         [JsonIgnore]

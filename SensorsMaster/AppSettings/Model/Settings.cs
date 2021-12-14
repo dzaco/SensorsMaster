@@ -5,6 +5,7 @@ using System;
 using SensorsMaster.Common.Interfaces;
 using SensorsMaster.Device.Model;
 using SensorsMaster.Device.Model.Collection;
+using SensorsMaster.Common.Enums;
 
 namespace SensorsMaster.AppSettings
 {
@@ -36,6 +37,7 @@ namespace SensorsMaster.AppSettings
             poiCollection = new POICollection();
             sensorCollection = new SensorCollection();
             gridGeneratorSettings = new GridGeneratorSettings();
+            poiGenerateStrategy = new POIGenerateStrategy();
         }
 
         private SensorSettings sensorSettings;
@@ -43,6 +45,7 @@ namespace SensorsMaster.AppSettings
         private POICollection poiCollection;
         private SensorCollection sensorCollection;
         private GridGeneratorSettings gridGeneratorSettings;
+        private POIGenerateStrategy poiGenerateStrategy;
 
         public SensorSettings SensorSettings
         {
@@ -87,6 +90,15 @@ namespace SensorsMaster.AppSettings
             {
                 gridGeneratorSettings = value;
                 OnPropertyChanged(GridGeneratorSettings);
+            }
+        }
+        public POIGenerateStrategy POIGenerateStrategy
+        {
+            get { return poiGenerateStrategy; }
+            set
+            {
+                poiGenerateStrategy = value;
+                OnPropertyChanged(POIGenerateStrategy);
             }
         }
     }

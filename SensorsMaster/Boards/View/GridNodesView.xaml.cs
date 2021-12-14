@@ -1,5 +1,6 @@
 ﻿using SensorsMaster.Device.View;
 using SensorsMaster.Generators.GridGenerators;
+using SensorsMaster.Generators.POIGenerators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,7 @@ namespace SensorsMaster.Boards.View
         public GridNodesView()
         {
             Grid = new SquareGridGenerator().Generate();
+            Grid.POICollection = new POIGenerator(Grid).Generate();
             this.DataContext = Grid;
             InitializeComponent();
             DrawShapes();
@@ -38,6 +40,10 @@ namespace SensorsMaster.Boards.View
             foreach (var node in Grid)
             {
                 this.Canvas.Children.Add(new PointShape(node.Point));
+            }
+            foreach(var poi in Grid.POICollection)
+            {
+                this.Canvas.Children.Add(new POIShape(poi));
             }
         }
     }

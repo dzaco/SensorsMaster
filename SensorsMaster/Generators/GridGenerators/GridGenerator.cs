@@ -14,20 +14,20 @@ namespace SensorsMaster.Generators.GridGenerators
 
         public double Width { get; }
         public double Height { get; }
-        public double Rows { get; }
-        public double Columns { get; }
+        public int Rows { get; }
+        public int Columns { get; }
         public GridNodes GridNodes { get; }
         public double Distance { get; }
 
         public GridGenerator(double distance)
         {
             Settings = Settings.GetInstance();
-            GridNodes = new GridNodes();
             Distance = distance;
             Width = Settings.SizeSettings.Width;
             Height = Settings.SizeSettings.Height;
-            Rows = (Height / distance)-1;
-            Columns = (Width / distance)-1;
+            Rows = (int) (Height / distance)-1;
+            Columns = (int) (Width / distance)-1;
+            GridNodes = new GridNodes(Distance, Rows, Columns);
         }
     }
 }

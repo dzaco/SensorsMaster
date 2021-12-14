@@ -41,11 +41,12 @@ namespace SensorsMaster.Device.View
         public override Geometry CreateGeometry()
         {
             var scale = Settings.SizeSettings.Scale;
-            var center = CreateSquere(POI.Point.Factor(scale), Size);
+            //var center = CreateSquere(POI.Point.Factor(scale), Size);
+            var center = CreateCircle(POI.Point.Factor(scale), 2);
             if (POI.IsCovered)
                 this.Fill = System.Windows.Media.Brushes.Green;
             else
-                this.Fill = System.Windows.Media.Brushes.Transparent;
+                this.Fill = System.Windows.Media.Brushes.Red;
 
             return center;
         }
